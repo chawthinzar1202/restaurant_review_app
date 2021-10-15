@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RestaurantReviewApp</title>
+    <title>Restaurant Review App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+      <%= link_to "Home", root_path %>
+      <%= link_to "See Reviews", reviews_path %>
+      <%= link_to "See Restaurants", restaurants_path %>
+      <%= link_to "New Review", new_review_path %>
+       
+    </nav>
+    <div class = "container">
+      <h1>Restaurant Review</h1>
+      <%= yield %>
+      <footer>
+        <%= link_to "Back", root_path %>
+        <%= render '/users/links' %>
+      
+      </footer>
+    </div> 
+    
   </body>
 </html>

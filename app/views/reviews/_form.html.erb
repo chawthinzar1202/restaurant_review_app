@@ -1,0 +1,44 @@
+<%= form_for(@review) do |f| %>
+  
+    
+  <br/>
+      <%= f.hidden_field :user_id %>
+    <div class="field">
+      <%= f.label :restaurant_name, "Restaurant Name:" %> &ensp;
+      <%= f.text_field :restaurant_name %>
+      <br></br>
+    </div>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "Enter Review Comments:", rows: 5, cols: 100 %>
+      <br></br>
+    </div>
+
+    <div class="col-md-4 cuisinecheckbox">
+      <b>Choose Cuisine: </b>&ensp;
+      
+    </div>
+    <div class="field">
+      
+    <br></br>
+    </div>
+    <div class="col-md-4 ratingradiobuttons">
+      <b>Restaurant Rating: </b>&ensp;
+      <%= f.radio_button :rating, 'Excellent' %>
+      <%= f.label :rating, 'Excellent', value: 'Excellent' %>
+      <%= f.radio_button :rating, 'Good' %>
+      <%= f.label :rating, 'Good', value: 'Good' %>
+      <%= f.radio_button :rating, 'Average' %>
+      <%= f.label :rating, 'Average', value: 'Average' %>
+      <%= f.radio_button :rating, 'Poor' %>
+      <%= f.label :rating, 'Poor', value: 'Poor' %>
+      <br></br>
+    </div>
+    <div class="field">
+      <%= f.label :date_visited, "Date Visited (or today, #{Time.now.strftime("%m/%d/%Y")}):" %> &ensp;
+     
+      </br>
+    </div>
+    <div class="actions">
+      <%= f.submit "Save Review" %>
+    </div>
+<% end %>
