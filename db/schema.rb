@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_032418) do
+ActiveRecord::Schema.define(version: 2021_10_19_100741) do
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
@@ -18,36 +24,38 @@ ActiveRecord::Schema.define(version: 2021_10_15_032418) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "review_cuisines", force: :cascade do |t|
+    t.integer "review_id"
+    t.integer "cuisine_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cuisine_id"], name: "index_review_cuisines_on_cuisine_id"
+    t.index ["review_id"], name: "index_review_cuisines_on_review_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
-    t.string "cuisine"
     t.string "rating"
     t.datetime "review_date"
     t.integer "user_id"
     t.integer "restaurant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "date_visited"
     t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "review_cuisines", "cuisines"
+  add_foreign_key "review_cuisines", "reviews"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
 end

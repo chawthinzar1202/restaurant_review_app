@@ -1,0 +1,21 @@
+<fieldset>
+<legend>
+  <h3>Log In</h3>
+</legend>
+<%= form_for(:session, url: login_path) do |f| %><!--:user login-->
+  <br/>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <br/>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  </br>
+    <%= f.submit "Login" ,class: "btn btn-large btn-primary"%>
+<% end %>
+</fieldset>
+
+<br/>

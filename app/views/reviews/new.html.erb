@@ -4,7 +4,49 @@
 </legend>
 
 <%= render 'form' %>
-
+<div id="reviewResult">
+  <h4 id="restaurantName"></h4>
+  <p id="reviewBody"></p>
+  <p id="reviewCuisines"></p>
+  <p id="reviewRating"></p>
+  <p id="reviewDateVisited"></p>
+  <h4 id="reviewThankYou"></h4>
+</div>
+<div class="reviewLink"></div>
 </fieldset>
 <br/>
 
+<script> 
+$(function () { 
+    $('form').submit(function(event) {   
+     
+      event.preventDefault();
+      var values = $(this).serialize();
+      var posting = $.post('/reviews', values); 
+      posting.done(function(data) {
+        $('#restaurantName').css({ 'font-weight': 'bold' });
+        $("#restaurantName").text("Your Review Saved For: " + data["restaurant"]["name"] + '.');
+        $("#reviewBody").text("You commented: " + '"' + data["content"] + '".');
+        var cuisineType = data["cuisines"][0]["name"];
+        $("#reviewCuisines").html("You entered cuisine as: " + '"<b>' + cuisineType + '</b>."');
+        
+        $.extend({
+          showRating: function() {
+            var txt1 = data["rating"];
+            var txt2 = data["restaurant"]["name"];
+            $('#reviewRating').append(`You gave a rating of "<b>${txt1}</b>" for ${txt2}.`);
+          }
+        });
+        $.showRating();
+        var visitDate = data["date_visited"];
+        var date = new Date(visitDate);
+        var newDate = date.toLocaleDateString();
+        $("#reviewDateVisited").text("You dined at " + data["restaurant"]["name"] + " on " + newDate + '.');
+        var txt1 = "THANK YOU for posting at ";
+        var txt2 = $("<b></b>").text("My Restaurant Review!"); 
+        $('#reviewThankYou').append(txt1, txt2); 
+        $(".reviewLink").html("<a href='/reviews/"+data['id'].toString()+"'>Continue To Review Page</a>");
+      });
+    });
+  });
+</script>

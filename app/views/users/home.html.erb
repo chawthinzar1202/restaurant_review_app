@@ -2,7 +2,7 @@
 <p>
   Here you can post reviews of your favorite (and not so favorite) restaurants.  Bon appetit!
 </p>
-
+<% if logged_in? %>
 <fieldset>
 <legend>
   <h4>
@@ -11,11 +11,11 @@
 </legend>
 <br/>
     <ul>
-        <li><%= link_to "Create your review" %></li>
-        <li><%= link_to "Read your review" %></li>
-        <li><%= link_to "Update your review" %></li>
-        <li><%= link_to "Delete your review" %></li>   
+      <li><%= link_to "(C)reate your review", new_review_path %></li>
+      <li><%= link_to "(R)ead your review", user_path(current_user) %></li>
+      <li><%= link_to "(U)pdate your review", user_path(current_user) %></li>
+      <li><%= link_to "(D)elete your review", user_path(current_user) %></li>
     </ul>
 </fieldset>
-
+<% end %>
 <br/>

@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -29,6 +29,14 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 # gem 'devise'
 gem 'kaminari'
+# gem 'will_paginate'
+# gem 'will_paginate-bootstrap-style'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'faker'
+gem 'active_model_serializers'
+gem 'uglifier', '~> 2.7', '>= 2.7.2'
+
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
