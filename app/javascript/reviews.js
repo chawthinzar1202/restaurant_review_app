@@ -1,17 +1,17 @@
 $(function () {
     $(".js-more").on('click', function() {
       var id = $(this).data("id");
-      $.get("/reviews/" + id + ".json", function(data) { //High-level interface AJAX GET request
+      $.get("/reviews/" + id + ".json", function(data) { 
         $("#body-" + id).html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "Comments: " + '"' + data["content"] + '"');
       });
     });
   });
   
-  //Click 'Next' button in Review show page to render next newest review on the same page
+ 
   $(function () {
     $(".js-next").on("click", function() {
       var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-      $.get("/reviews/" + nextId + ".json", function(data) { //High-level interface AJAX GET request
+      $.get("/reviews/" + nextId + ".json", function(data) { 
         var review = data;
         var rname = review["restaurant"]["name"];
         $(".restName").html("<a href='/restaurants/"+data['id'].toString()+"'>"+rname+"</a>");
@@ -30,15 +30,15 @@ $(function () {
         $("a[href$='.com']").html(review["restaurant"]["name"]);
         $(".load_more").css({ 'font-weight': 'bold' });
         $(".load_more").html(review["restaurant"]["name"]);
-        $(".js-next").attr("data-id", review["id"]); // re-set the Review id to current on button click
+        $(".js-next").attr("data-id", review["id"]);
       });
     });
   });
   
-  //Click Link "Load More Reviews" in Review show page
+
   $(function() {
     $(".load_more_reviews").on("click", function(e) {
-      $.get( this.href).done(function( response ) { //High-level interface AJAX GET request
+      $.get( this.href).done(function( response ) { 
         $(".reviews").html(response)
       })
       e.preventDefault();

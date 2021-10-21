@@ -35,6 +35,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'faker'
 gem 'active_model_serializers'
 gem 'uglifier', '~> 2.7', '>= 2.7.2'
+gem 'friendly_id', '~> 5.4.0'
 
 gem 'jquery-rails'
 

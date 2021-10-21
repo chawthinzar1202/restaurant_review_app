@@ -31,8 +31,8 @@
     password = "password"
     password_confirmation = "password"
     user = User.create!(email:                 email,
-                 password:              password,
-                 password_confirmation: password)
+                        password:              password,
+                        password_confirmation: password)
     2.times do |n|
       restaurant_name = ["McDonalds", "Burger King", "Wendy's", "Saizeriya", "Subway", "Lotteria", "KFC", "Mos Burger", "Red Robin", "IHOP", "Denny's"].sample
       content =  Faker::Lorem.paragraph(3, true, 3)
