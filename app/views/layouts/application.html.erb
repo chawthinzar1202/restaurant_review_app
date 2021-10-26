@@ -5,40 +5,36 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <%= link_to "See Reviews", reviews_path %>
-      <%= link_to "See Restaurants", restaurants_path %>
-      <% if logged_in? %>
-        <%= link_to "#{current_user.email.upcase_first}", user_path(current_user) %>
-        <%= link_to "New Review", new_review_path %>
-        <%= link_to "Settings", edit_user_path(current_user) %>
-        <%= link_to "Logout", logout_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign Up", signup_path %>
-      <% end %>
-      <% flash.each do |name, msg| -%>
-        <strong><%= content_tag :div, msg, class: name %></strong>
-      <% end -%>
-    </nav>
-    <div class = "container">
-      <h1>My Restaurant Review</h1>
+       <%= render 'layouts/header' %>
+    <div class="container", style="margin-top: 80px;">
       <%= yield %>
+    </div>
+    <div class="footer-basic">
       <footer>
-        <%= link_to "Back", root_path %>
-        <%= render '/users/links' %>
-        <%= render '/reviews/links' %>
-        <% if !logged_in? %>
-          <%= link_to "Log In", login_path %>
-        <% end %>
+        <ul class="list-inline">
+          <li class="list-inline-item"><%= link_to "Back", root_path %></li>
+          <li class="list-inline-item"><%= render '/users/links' %></li>
+          <li class="list-inline-item"><%= render '/reviews/links' %></li>
+          <li class="list-inline-item">
+            <% if !logged_in? %>
+              <%= link_to "Log In", login_path %>
+            <% end %>
+          </li>
+        </ul>
+         <p class="copyright">Author: Chaw Thinzar<i class="bi bi-emoji-sunglasses"></i><br>
+         <p>chawthinzar@cybermissions.co.jp</p>
+         <a href="https://www.facebook.com/profile.php?id=100012888365440"><i class="bi bi-facebook"></i>chawthinzar's facebook!</a></p>
+
       </footer>
-    </div> 
-    
+    </div>
   </body>
 </html>
+

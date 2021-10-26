@@ -1,19 +1,25 @@
-<h3>Welcome to My Restaurant Review!</h3>
-<p>
+<h2>Welcome to My Restaurant Review!</h2>
+<h4>
   Here you can post reviews of your favorite (and not so favorite) restaurants.  Bon appetit!
-</p>
+</h4>
 <% if logged_in? %>
 <fieldset>
 <legend>
-  <h4>
+  <p>
     Click on one of the following links below to:
-  </h4> <!--CRUDS-->
+  </p> <!--CRUDS-->
 </legend>
 <br/>
     <ul>
       <li><%= link_to "(C)reate your review", new_review_path %></li>
+    </ul>
+    <ul>
       <li><%= link_to "(R)ead your review", user_path(current_user) %></li>
+    </ul>
+    <ul>
       <li><%= link_to "(U)pdate your review", user_path(current_user) %></li>
+    </ul>
+    <ul>
       <li><%= link_to "(D)elete your review", user_path(current_user) %></li>
     </ul>
 </fieldset>

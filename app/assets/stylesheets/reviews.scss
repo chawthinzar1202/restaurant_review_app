@@ -1,3 +1,14 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.cuisinecheckbox input[type="checkbox"] + label {
+    margin-right: 10px;
+}
+
+.ratingradiobuttons input[type="radio"] + label {
+    margin-right: 2px;
+}
+
+.field label {
+   font-weight : bold;
+ }

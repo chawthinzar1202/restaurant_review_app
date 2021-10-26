@@ -32,12 +32,15 @@ gem 'kaminari'
 # gem 'will_paginate'
 # gem 'will_paginate-bootstrap-style'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
 gem 'faker'
+
 gem 'active_model_serializers'
 gem 'uglifier', '~> 2.7', '>= 2.7.2'
 gem 'friendly_id', '~> 5.4.0'
-
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'jquery-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

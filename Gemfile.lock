@@ -96,6 +96,8 @@ GEM
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.4)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     globalid (0.5.2)
@@ -250,6 +252,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   faker
+  figaro (~> 1.1, >= 1.1.1)
   friendly_id (~> 5.4.0)
   jbuilder (~> 2.7)
   jquery-rails

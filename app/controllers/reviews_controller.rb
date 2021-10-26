@@ -5,9 +5,9 @@ class ReviewsController < ApplicationController
   def index
     @users = User.all.alphabetical_order.page(params[:page]) 
     if params[:user_id]
-      @reviews = User.find(params[:user_id]).reviews.page(params[:page])#Show all reviews for link_to specific user
+      @reviews = User.find(params[:user_id]).reviews.page(params[:page])
     elsif params[:restaurant_id]
-      @reviews = Restaurant.find(params[:restaurant_id]).reviews.page(params[:page])#Show all reviews for link_to specific restaurant
+      @reviews = Restaurant.find(params[:restaurant_id]).reviews.page(params[:page])
       render :layout => false
     elsif params[:rating]
       if params[:rating] == "Excellent"
