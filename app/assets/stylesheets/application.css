@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ .navbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+ }
 .nav-item::after {
     content: '';
     display: block;
@@ -70,6 +76,7 @@ body {
     padding:40px 0;
     background-color: rgb(77, 83, 94);
     color:#000000;
+    
 }
 
 .footer-basic ul {
@@ -93,13 +100,15 @@ body {
 
 .footer-basic ul a:hover {
     opacity:5;
+    color: #fec400;
 }
 
 
 .footer-basic .copyright {
     margin-top:15px;
     text-align:center;
-    font-size:20px;
+    font-size:15px;
     color:rgb(19, 18, 18);
     margin-bottom:0;
+    
 }

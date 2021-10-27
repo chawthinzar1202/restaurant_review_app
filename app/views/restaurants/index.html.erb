@@ -1,8 +1,8 @@
 <br/>
 <fieldset>
-<legend>
-  <h3>Restaurant Directory</h3>
-</legend>
+
+  <h2>Restaurant Directory</h2>
+
 <br/>
    <ol>
     <% @restaurants.each do |restaurant| %>
@@ -13,6 +13,8 @@
       </li>
     <% end %>
   </ol>
+  <%= link_to "Back", root_path, class: "btn btn-outline-primary"%>
+  <br/>
   <%= page_entries_info @restaurants %>
   <%= paginate @restaurants, window:2 %>
   </fieldset>

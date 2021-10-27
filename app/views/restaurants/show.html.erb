@@ -1,7 +1,7 @@
 <fieldset>
-<legend>
-  <h3>Restaurant Page</h3>
-</legend>
+
+  <h2>Restaurant Page</h2>
+
 </br>
 <ul>
   <li>
@@ -28,7 +28,8 @@
   <li><b>More info, 'click' to search for:</b>&ensp;
     <a target="_blank" href = 'http://www.<%= "#{@restaurant.name}" %>.com' data-confirm="Are you sure you want to visit an external website?"><%= @restaurant.name %></a>
   </li>
-  
+  <br/>
+  <%= link_to "Back", restaurants_path, class: "btn btn-outline-primary"%>
 </ul>
 </fieldset>
 <br/>

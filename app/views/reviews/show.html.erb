@@ -1,26 +1,27 @@
 <fieldset>
-<legend>
-  <h3>Review Page</h3>
-</legend>
+
+  <h2>Review Page</h2>
+
 <br/>
 <ul>
   <li>Restaurant Name:&ensp;
     <span class="restName">
-      <%= link_to "#{@current_restaurant.name}", restaurant_path(@current_restaurant) %>
+      <b><%= link_to "#{@current_restaurant.name}", restaurant_path(@current_restaurant) %></b>
     </span>
   </li>
   <br/>
   <li>Comments:&ensp;
-    "<span class="reviewBody"><%= @review.content %></span>"
+    <b>"<span class="reviewBody"><%= @review.content %></span>"</b>
   </li>
   <br/>
   <li>Cuisine:&ensp;
     <span class="reviewCuisines">
-      <%= @review.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
+      <b><%= @review.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %></b>
     </span>
   </li>
   <br/>
   <li>Rating:&ensp;
+  
     <span class="reviewRating">
       <% if @review.rating == "Excellent" %>
         <b><%= link_to "#{@review.rating}", reviews_path(rating: "Excellent") %></b>
@@ -32,17 +33,18 @@
         <b><%= @review.rating %></b>
       <% end %>
     </span>
+    
   </li>
   <br/>
   <li>Date Visited:&ensp;
     <span class="reviewDateVisited">
-      <%= @review.date_visited.strftime('%-m/%-d/%Y') %>
+      <b> <%= @review.date_visited.strftime('%-m/%-d/%Y') %></b>
     </span>
   </li>
   <br/>
   <li>Date Reviewed:&ensp;
     <span class="reviewUpdatedAt">
-      <%= @review.updated_at.strftime('%-m/%-d/%Y') %>
+      <b><%= @review.updated_at.strftime('%-m/%-d/%Y') %></b>
     </span>
   </li>
   <br/>
@@ -54,7 +56,7 @@
   </li>
   <br/>
 <% end %>
-<button class="js-next" data-id="<%= @review.id %>">
+<button class="js-next" data-id="<%= @review.id %>" style=>
   Next Review...
 </button>
 </ul>
@@ -83,6 +85,8 @@
     <%= @review.restaurant_name %></a>
   </span>
 </li>
+<br/>
+  <%= link_to "Back", reviews_path, class: "btn btn-outline-primary"%>
 <br/>
 </fieldset>
 <br/>
