@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :restaurant
-  has_many :review_cuisines 
+  has_many :review_cuisines ,dependent: :destroy
   has_many :cuisines, through: :review_cuisines
   
 

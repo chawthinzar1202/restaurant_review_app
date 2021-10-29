@@ -56,9 +56,7 @@
   </li>
   <br/>
 <% end %>
-<button class="js-next" data-id="<%= @review.id %>" style=>
-  Next Review...
-</button>
+
 </ul>
 </fieldset>
 <br/>
@@ -90,3 +88,23 @@
 <br/>
 </fieldset>
 <br/>
+
+<script>
+    $(function() {
+    $(".load_more_reviews").on("click", function(e) {
+    //   $.get( this.href).done(function( response ) {
+    //     $(".reviews").html(response)
+    //   })
+    //   e.preventDefault();
+
+    $.ajax({
+        method: "GET",
+        url: this.href
+      }).done(function(response) {
+         $(".reviews").html(response)
+      });
+      e.preventDefault();
+    });
+  });
+ 
+</script>

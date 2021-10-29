@@ -3,18 +3,18 @@ class ReviewsController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    @users = User.all.alphabetical_order.page(params[:page]) 
+    @users = User.all.alphabetical_order.page(params[:page]).per(5) 
     if params[:user_id]
-      @reviews = User.find(params[:user_id]).reviews.page(params[:page])
+      @reviews = User.find(params[:user_id]).reviews.page(params[:page]).per(5)
     elsif params[:restaurant_id]
-      @reviews = Restaurant.find(params[:restaurant_id]).reviews.page(params[:page])
+      @reviews = Restaurant.find(params[:restaurant_id]).reviews.page(params[:page]).per(5)
       render :layout => false
     elsif params[:rating]
       if params[:rating] == "Excellent"
-        @reviews = Review.top_reviews(params[:rating]).order_by_date_visited.page(params[:page])
+        @reviews = Review.top_reviews(params[:rating]).order_by_date_visited.page(params[:page]).per(5)
       end
     else
-      @reviews = Review.all.order_by_date_visited.page(params[:page])
+      @reviews = Review.all.order_by_date_visited.page(params[:page]).per(5)
     end
   end
 

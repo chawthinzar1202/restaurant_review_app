@@ -73,10 +73,23 @@ body {
 .pagination a:hover:not(.active) {background-color: #599ee2;}
 
 .footer-basic {
-    padding:40px 0;
+    
+    height: 100%;
+    min-height: 60vh;
+    position: relative;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}
+
+footer{
+    width: 100%;
     background-color: rgb(77, 83, 94);
     color:#000000;
-    
+    text-align: center;
+    padding: 40px 0;
+
+    position: absolute;
+    bottom: 0; 
 }
 
 .footer-basic ul {

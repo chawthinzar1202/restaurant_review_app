@@ -11,7 +11,19 @@
   (Posted <%= time_ago_in_words(review.updated_at) %> ago.)
   <div id="body-<%= review.id %>">&emsp;
     Comments:&ensp;"<%= truncate review.content %>"&ensp;
-    <a href="#" class="js-more" data-id="<%= review.id %>">More...</a>&emsp;
+    <a href="javascript:void(0);" class="js-more" data-id="<%= review.id %>">More...</a>&emsp;
   </div>
 <br/>
 </li>
+
+<script>
+  $(function () {
+    $(".js-more").on('click', function() {
+      var id = $(this).data("id");
+      $.get("/reviews/" + id + ".json", function(data) { 
+        $("#body-" + id).html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "Comments: " + '"' + data["content"] + '"');
+    
+        });
+    });
+  });
+</script>

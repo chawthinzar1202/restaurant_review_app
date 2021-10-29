@@ -33,9 +33,7 @@
                             <%= link_to("Sign Up", signup_path, class: "nav-link" ) %>
                         </li>
                     <% end %>
-                    <% flash.each do |name, msg| -%>
-                        <strong><%= content_tag :div, msg, class: name %></strong>
-                    <% end -%>
+                    
                 </li>
             </ul>
         </div>

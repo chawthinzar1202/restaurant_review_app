@@ -14,9 +14,14 @@
 
   <body>
        <%= render 'layouts/header' %>
+       
     <div class="container", style="margin-top: 80px;">
+     <% flash.each do |name, msg| -%>
+                        <strong><%= content_tag :div, msg, class: name %></strong>
+                    <% end -%>
       <%= yield %>
     </div>
+   
     <div class="footer-basic">
       <footer>
         <ul class="list-inline">
